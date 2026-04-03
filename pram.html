@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediPharm — Pakistan's Trusted Online Pharmacy</title>
+<meta name="description" content="MediPharm - DRAP Licensed Online Pharmacy. Genuine medicines, fast doorstep delivery, prescription upload. Available 24/7.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #1565C0;
+  --primary-dark: #0D47A1;
+  --primary-light: #E3F0FF;
+  --primary-mid: #1976D2;
+  --accent: #00897B;
+  --accent-dark: #00695C;
+  --accent-light: #E0F5F3;
+  --white: #FFFFFF;
+  --off-white: #F8FAFB;
+  --gray-50: #F1F5F9;
+  --gray-100: #E8EEF5;
+  --gray-300: #CBD5E0;
+  --gray-500: #718096;
+  --gray-700: #2D3748;
+  --gray-900: #0F172A;
+  --warn: #E65100;
+  --warn-light: #FFF3E0;
+  --success: #2E7D32;
+  --success-light: #F1F8E9;
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 60px rgba(0,0,0,0.14);
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 100px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--gray-900);background:var(--white);line-height:1.6;}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;line-height:1.25;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:'DM Sans',sans-serif;}
+img{max-width:100%;}
+
+/* ─── PAGE SYSTEM ─── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ─── EMERGENCY STRIP ─── */
+.emergency-strip{
+  background:linear-gradient(90deg,#0D47A1,#1565C0,#00897B);
+  color:white;padding:9px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12.5px;font-weight:500;gap:12px;flex-wrap:wrap;
+}
+.emergency-strip .pulse{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:#FF5252;margin-right:6px;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.7;transform:scale(1.3);}}
+.emergency-strip a{color:rgba(255,255,255,.85);transition:color .2s;}
+.emergency-strip a:hover{color:white;}
+
+/* ─── HEADER ─── */
+header{
+  background:white;
+  border-bottom:1px solid var(--gray-100);
+  position:sticky;top:0;z-index:1000;
+  box-shadow:var(--shadow-sm);
+}
+.header-bar{
+  display:flex;align-items:center;gap:20px;
+  padding:14px 40px;max-width:1400px;margin:0 auto;
+}
+.logo{display:flex;align-items:center;gap:11px;cursor:pointer;flex-shrink:0;}
+.logo-mark{
+  width:44px;height:44px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;box-shadow:0 4px 12px rgba(21,101,192,.3);
+}
+.logo-text strong{font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;color:var(--primary);display:block;line-height:1.1;}
+.logo-text small{font-size:10px;color:var(--gray-500);font-weight:500;letter-spacing:.8px;text-transform:uppercase;}
+
+.search-wrap{
+  flex:1;display:flex;align-items:center;
+  background:var(--gray-50);border-radius:var(--r-full);
+  border:2px solid var(--gray-100);overflow:hidden;
+  transition:border-color .2s,box-shadow .2s;
+}
+.search-wrap:focus-within{border-color:var(--primary);background:white;box-shadow:0 0 0 4px rgba(21,101,192,.08);}
+.search-wrap input{
+  flex:1;border:none;background:transparent;padding:11px 20px;
+  font-size:14px;font-family:'DM Sans',sans-serif;color:var(--gray-900);outline:none;
+}
+.search-wrap input::placeholder{color:var(--gray-500);}
+.search-wrap button{
+  background:var(--primary);color:white;border:none;
+  padding:11px 20px;font-size:16px;transition:background .2s;
+  display:flex;align-items:center;
+}
+.search-wrap button:hover{background:var(--primary-dark);}
+
+.header-actions{display:flex;align-items:center;gap:8px;}
+.hdr-btn{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  background:none;border:none;padding:8px 12px;border-radius:var(--r-sm);
+  color:var(--gray-500);font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.6px;transition:all .2s;
+  position:relative;
+}
+.hdr-btn:hover{background:var(--primary-light);color:var(--primary);}
+.hdr-btn .hdr-icon{font-size:20px;}
+.badge{
+  position:absolute;top:4px;right:6px;
+  background:var(--accent);color:white;
+  font-size:9px;font-weight:700;width:16px;height:16px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.btn-upload-rx{
+  background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  color:white;border:none;padding:10px 22px;border-radius:var(--r-full);
+  font-weight:700;font-size:13px;font-family:'Poppins',sans-serif;
+  box-shadow:0 4px 14px rgba(0,137,123,.35);
+  transition:transform .2s,box-shadow .2s;white-space:nowrap;
+}
+.btn-upload-rx:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,137,123,.45);}
+
+/* ─── NAV ─── */
+nav{
+  border-top:1px solid var(--gray-100);
+  background:white;
+}
+.nav-inner{
+  display:flex;align-items:center;
+  padding:0 40px;max-width:1400px;margin:0 auto;
+  gap:2px;overflow-x:auto;
+}
+nav a{
+  padding:13px 16px;font-size:13.5px;font-weight:600;
+  color:var(--gray-500);border-bottom:3px solid transparent;
+  white-space:nowrap;transition:all .2s;font-family:'Poppins',sans-serif;
+}
+nav a:hover,nav a.active{color:var(--primary);border-bottom-color:var(--primary);}
+nav a.nav-emg{color:var(--warn)!important;margin-left:auto;}
+nav a.nav-emg:hover{border-bottom-color:var(--warn)!important;}
+
+/* ─── MAIN WRAPPER ─── */
+main{min-height:60vh;}
+.section{padding:72px 40px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-inner-wide{max-width:1400px;margin:0 auto;}
+.section-alt{background:var(--off-white);}
+
+/* ─── SECTION HEADER ─── */
+.s-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--primary-light);color:var(--primary);
+  padding:5px 14px;border-radius:var(--r-full);
+  font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.s-tag.green{background:var(--accent-light);color:var(--accent-dark);}
+.sh{text-align:center;margin-bottom:52px;}
+.sh h2{font-size:34px;font-weight:800;color:var(--gray-900);margin-bottom:10px;}
+.sh p{font-size:16px;color:var(--gray-500);max-width:580px;margin:0 auto;}
+
+/* ─── HERO ─── */
+.hero{
+  background:linear-gradient(135deg,#0a3880 0%,#1565C0 45%,#1976D2 70%,#007A6E 100%);
+  padding:80px 40px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-40%;right:-5%;
+  width:700px;height:700px;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-30%;left:25%;
+  width:500px;height:500px;border-radius:50%;
+  background:rgba(0,137,123,.15);pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:60px;
+}
+.hero-left{flex:1;position:relative;z-index:2;}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.25);color:white;
+  padding:6px 16px;border-radius:var(--r-full);
+  font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero h1{font-size:54px;font-weight:900;color:white;line-height:1.1;margin-bottom:22px;}
+.hero h1 em{font-style:normal;color:#7ECAC4;}
+.hero-desc{font-size:17px;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:36px;max-width:530px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-hero-primary{
+  background:white;color:var(--primary);padding:15px 34px;
+  border-radius:var(--r-full);border:none;font-weight:700;
+  font-family:'Poppins',sans-serif;font-size:15px;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);transition:all .2s;
+}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.25);}
+.btn-hero-ghost{
+  background:rgba(255,255,255,.15);color:white;padding:15px 34px;
+  border-radius:var(--r-full);border:2px solid rgba(255,255,255,.35);
+  font-weight:700;font-family:'Poppins',sans-serif;font-size:15px;
+  backdrop-filter:blur(8px);transition:all .2s;
+}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.28);}
+.hero-metrics{display:flex;gap:36px;margin-top:44px;}
+.hero-metric{color:white;}
+.hero-metric .num{font-size:32px;font-weight:900;font-family:'Poppins',sans-serif;display:block;line-height:1;}
+.hero-metric .lbl{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.4px;margin-top:4px;}
+
+.hero-right{flex:0 0 380px;position:relative;z-index:2;}
+.rx-card{
+  background:rgba(255,255,255,.13);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.22);border-radius:var(--r-xl);
+  padding:32px;color:white;
+}
+.rx-card h3{font-size:19px;font-weight:700;margin-bottom:22px;}
+.rx-drop{
+  border:2px dashed rgba(255,255,255,.4);border-radius:var(--r-lg);
+  padding:28px 20px;text-align:center;cursor:pointer;
+  transition:border-color .2s,background .2s;margin-bottom:14px;
+}
+.rx-drop:hover{border-color:rgba(255,255,255,.8);background:rgba(255,255,255,.08);}
+.rx-drop .drop-icon{font-size:42px;margin-bottom:10px;display:block;}
+.rx-drop p{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5;}
+.rx-formats{display:flex;justify-content:center;gap:8px;margin-bottom:6px;}
+.rx-fmt{background:rgba(255,255,255,.18);color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600;}
+.rx-upload-btn{
+  width:100%;background:var(--accent);color:white;border:none;
+  padding:14px;border-radius:var(--r-md);font-weight:700;
+  font-family:'Poppins',sans-serif;font-size:14px;
+  transition:background .2s;
+}
+.rx-upload-btn:hover{background:var(--accent-dark);}
+.rx-note{font-size:11px;color:rgba(255,255,255,.6);text-align:center;margin-top:10px;}
+
+/* ─── CATEGORIES ─── */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px;}
+.cat-card{
+  background:white;border:2px solid var(--gray-100);border-radius:var(--r-lg);
+  padding:26px 16px;text-align:center;cursor:pointer;
+  transition:all .25s;position:relative;overflow:hidden;
+}
+.cat-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0);transition:transform .25s;
+}
+.cat-card:hover{border-color:var(--primary);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.cat-card:hover::before{transform:scaleX(1);}
+.cat-icon{font-size:40px;margin-bottom:13px;display:block;}
+.cat-card h4{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:5px;font-family:'Poppins',sans-serif;}
+.cat-card p{font-size:11.5px;color:var(--gray-500);}
+.cat-count{
+  position:absolute;top:10px;right:10px;
+  background:var(--primary-light);color:var(--primary);
+  font-size:10px;font-weight:700;padding:2px 7px;border-radius:var(--r-full);
+}
+
+/* ─── PRODUCTS ─── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:22px;}
+.prod-card{
+  background:white;border-radius:var(--r-lg);border:1px solid var(--gray-100);
+  overflow:hidden;transition:all .25s;display:flex;flex-direction:column;
+}
+.prod-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:var(--primary-light);}
+.prod-thumb{
+  height:175px;background:var(--gray-50);
+  display:flex;align-items:center;justify-content:center;
+  font-size:68px;position:relative;
+}
+.prod-thumb .thumb-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(21,101,192,.06),transparent 70%);
+}
+.p-badge{
+  position:absolute;top:11px;left:11px;
+  font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:4px;
+}
+.p-badge.rx{background:#FDECEA;color:#C62828;}
+.p-badge.otc{background:var(--accent-light);color:var(--accent-dark);}
+.p-offer{
+  position:absolute;top:11px;right:11px;
+  background:#E65100;color:white;
+  font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;
+}
+.prod-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+.prod-brand{font-size:11px;color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.prod-name{font-size:15.5px;font-weight:700;color:var(--gray-900);margin-bottom:3px;font-family:'Poppins',sans-serif;}
+.prod-dose{font-size:11.5px;color:var(--gray-500);margin-bottom:13px;}
+.prod-pricing{display:flex;align-items:baseline;gap:7px;margin-top:auto;margin-bottom:13px;}
+.p-now{font-size:20px;font-weight:800;color:var(--primary);font-family:'Poppins',sans-serif;}
+.p-was{font-size:13px;color:var(--gray-300);text-decoration:line-through;}
+.prod-cta{
+  width:100%;padding:10px;border-radius:var(--r-sm);
+  font-weight:700;font-family:'Poppins',sans-serif;font-size:12.5px;
+  border:none;transition:all .2s;
+}
+.prod-cta.can-buy{background:var(--primary);color:white;}
+.prod-cta.can-buy:hover{background:var(--primary-dark);}
+.prod-cta.need-rx{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-300);}
+.prod-cta.need-rx:hover{background:var(--warn-light);color:var(--warn);border-color:var(--warn);}
+
+/* ─── PRODUCTS PAGE LAYOUT ─── */
+.pp-layout{display:flex;gap:28px;}
+.pp-filters{flex:0 0 228px;}
+.pp-content{flex:1;}
+.filter-box{
+  background:white;border:1px solid var(--gray-100);border-radius:var(--r-md);
+  padding:22px;margin-bottom:18px;box-shadow:var(--shadow-xs);
+}
+.filter-box h5{
+  font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;
+  letter-spacing:.8px;margin-bottom:16px;font-family:'Poppins',sans-serif;
+}
+.chk-option{display:flex;align-items:center;gap:10px;margin-bottom:10px;cursor:pointer;}
+.chk-option input{accent-color:var(--primary);}
+.chk-option label{font-size:13.5px;color:var(--gray-700);cursor:pointer;}
+.range-input{width:100%;accent-color:var(--primary);margin-top:8px;}
+.range-labels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--gray-500);margin-top:5px;}
+.pp-toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;gap:12px;flex-wrap:wrap;
+}
+.pp-count{font-size:14px;color:var(--gray-500);}
+.pp-count strong{color:var(--gray-900);}
+.sort-sel{
+  padding:9px 14px;border:1px solid var(--gray-300);border-radius:var(--r-sm);
+  font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--gray-700);
+  outline:none;cursor:pointer;background:white;
+}
+
+/* ─── PRODUCT DETAIL ─── */
+.pd-layout{display:flex;gap:60px;align-items:flex-start;}
+.pd-gallery{
+  flex:0 0 380px;background:var(--gray-50);border-radius:var(--r-xl);
+  height:420px;display:flex;align-items:center;justify-content:center;
+  font-size:110px;border:1px solid var(--gray-100);position:sticky;top:90px;
+  box-shadow:var(--shadow-sm);
+}
+.pd-info{flex:1;}
+.pd-brand{font-size:12px;color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.pd-name{font-size:33px;font-weight:800;color:var(--gray-900);margin-bottom:8px;}
+.pd-generic{font-size:15px;color:var(--gray-500);margin-bottom:20px;}
+.pd-price{font-size:38px;font-weight:900;color:var(--primary);font-family:'Poppins',sans-serif;margin-bottom:28px;}
+.pd-actions{display:flex;gap:14px;margin-bottom:32px;}
+.btn-buy{background:var(--primary);color:white;border:none;padding:14px 32px;border-radius:var(--r-full);font-weight:700;font-family:'Poppins',sans-serif;font-size:15px;transition:all .2s;box-shadow:0 4px 16px rgba(21,101,192,.35);}
+.btn-buy:hover{background:var(--primary-dark);box-shadow:0 6px 22px rgba(21,101,192,.45);}
+.btn-cart{background:var(--accent-light);color:var(--accent-dark);border:none;padding:14px 32px;border-radius:var(--r-full);font-weight:700;font-family:'Poppins',sans-serif;font-size:15px;transition:all .2s;}
+.btn-cart:hover{background:var(--accent);color:white;}
+
+.tab-nav{display:flex;border-bottom:2px solid var(--gray-100);margin-bottom:28px;gap:0;}
+.tab-btn{
+  padding:11px 20px;font-weight:600;font-size:13.5px;
+  border:none;background:none;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  color:var(--gray-500);transition:all .2s;font-family:'Poppins',sans-serif;
+}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+.info-row{margin-bottom:20px;}
+.info-row h6{font-size:11.5px;color:var(--gray-500);font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;}
+.info-row p{font-size:14px;color:var(--gray-700);line-height:1.75;}
+.warn-box{background:var(--warn-light);border-left:4px solid var(--warn);border-radius:var(--r-sm);padding:14px 18px;font-size:13px;color:#8B3A00;margin:18px 0;}
+.disclaimer-box{background:var(--primary-light);border:1px solid #BBDEFB;border-radius:var(--r-md);padding:18px;font-size:13px;color:var(--primary-dark);line-height:1.7;margin-top:26px;}
+
+/* ─── UPLOAD PAGE ─── */
+.up-steps{display:flex;justify-content:center;align-items:center;margin-bottom:52px;gap:0;}
+.up-step{display:flex;align-items:center;gap:9px;}
+.step-dot{width:36px;height:36px;border-radius:50%;background:var(--gray-100);color:var(--gray-500);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;font-size:14px;transition:all .3s;}
+.step-dot.active{background:var(--primary);color:white;box-shadow:0 4px 12px rgba(21,101,192,.35);}
+.step-dot.done{background:var(--accent);color:white;}
+.step-lbl{font-size:13px;font-weight:600;color:var(--gray-500);}
+.step-lbl.active{color:var(--primary);}
+.step-line{width:60px;height:2px;background:var(--gray-100);margin:0 10px;}
+.up-zone{
+  border:3px dashed var(--primary);border-radius:var(--r-xl);
+  background:var(--primary-light);padding:64px 40px;text-align:center;cursor:pointer;
+  transition:all .25s;max-width:680px;margin:0 auto 24px;
+}
+.up-zone:hover{background:#d4e8ff;border-color:var(--primary-dark);}
+.up-zone .zone-icon{font-size:70px;margin-bottom:18px;}
+.up-zone h3{font-size:23px;font-weight:700;color:var(--primary-dark);margin-bottom:10px;}
+.up-zone p{font-size:14.5px;color:var(--gray-500);margin-bottom:22px;}
+.fmt-chips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.fmt-chip{background:white;border:1px solid var(--primary);color:var(--primary);padding:5px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;}
+.up-sec{
+  display:flex;gap:15px;align-items:flex-start;
+  background:white;border:1px solid var(--gray-100);border-radius:var(--r-md);
+  padding:22px;max-width:680px;margin:0 auto 18px;
+  box-shadow:var(--shadow-xs);
+}
+.up-sec .sec-ico{font-size:30px;flex-shrink:0;}
+.up-sec h5{font-size:14px;font-weight:700;margin-bottom:6px;}
+.up-sec p{font-size:13px;color:var(--gray-500);line-height:1.65;}
+
+/* ─── CART ─── */
+.cart-layout{display:flex;gap:28px;align-items:flex-start;}
+.cart-list{flex:1;}
+.cart-summary{flex:0 0 308px;}
+.cart-item{
+  background:white;border:1px solid var(--gray-100);border-radius:var(--r-md);
+  padding:20px;display:flex;gap:16px;align-items:center;margin-bottom:14px;
+  box-shadow:var(--shadow-xs);
+}
+.ci-img{font-size:48px;flex-shrink:0;}
+.ci-info{flex:1;}
+.ci-name{font-size:16px;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:3px;}
+.ci-dose{font-size:12px;color:var(--gray-500);margin-bottom:10px;}
+.qty-wrap{display:flex;align-items:center;gap:10px;}
+.qty-btn{width:28px;height:28px;border-radius:var(--r-sm);border:1px solid var(--gray-300);background:white;font-weight:700;font-size:16px;color:var(--primary);transition:all .2s;}
+.qty-btn:hover{background:var(--primary);color:white;border-color:var(--primary);}
+.qty-val{font-weight:700;font-size:16px;min-width:26px;text-align:center;}
+.ci-price{font-size:21px;font-weight:800;color:var(--primary);font-family:'Poppins',sans-serif;white-space:nowrap;}
+.sum-card{
+  background:white;border:1px solid var(--gray-100);border-radius:var(--r-lg);
+  padding:26px;position:sticky;top:90px;box-shadow:var(--shadow-sm);
+}
+.sum-card h3{font-size:18px;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:20px;}
+.sum-row{display:flex;justify-content:space-between;font-size:14px;color:var(--gray-500);margin-bottom:11px;}
+.sum-row.total{font-weight:800;font-size:18px;color:var(--gray-900);border-top:1px solid var(--gray-100);padding-top:14px;margin-top:6px;}
+.delivery-opts{margin:18px 0;display:flex;gap:10px;}
+.d-opt{
+  flex:1;border:1px solid var(--gray-300);border-radius:var(--r-sm);
+  padding:11px 10px;font-size:12px;text-align:center;cursor:pointer;transition:all .2s;
+}
+.d-opt.sel{border-color:var(--primary);background:var(--primary-light);color:var(--primary);font-weight:700;}
+.d-opt strong{display:block;font-size:13px;margin-bottom:3px;}
+.checkout-cta{
+  width:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  color:white;border:none;padding:16px;border-radius:var(--r-md);
+  font-weight:700;font-family:'Poppins',sans-serif;font-size:16px;
+  margin-top:20px;transition:all .2s;
+  box-shadow:0 4px 14px rgba(0,137,123,.35);
+}
+.checkout-cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,137,123,.45);}
+
+/* ─── TRUST SECTION ─── */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+.trust-card{
+  background:white;border-radius:var(--r-lg);padding:30px 22px;text-align:center;
+  border:1px solid var(--gray-100);box-shadow:var(--shadow-xs);transition:all .25s;
+}
+.trust-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.t-icon{font-size:42px;margin-bottom:14px;}
+.trust-card h4{font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:9px;}
+.trust-card p{font-size:13px;color:var(--gray-500);line-height:1.65;}
+
+/* ─── REVIEWS ─── */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
+.rev-card{
+  background:white;border-radius:var(--r-lg);padding:26px;
+  border:1px solid var(--gray-100);box-shadow:var(--shadow-xs);
+}
+.rev-stars{color:#F9A825;font-size:17px;margin-bottom:11px;}
+.rev-text{font-size:14px;color:var(--gray-700);line-height:1.75;margin-bottom:18px;font-style:italic;}
+.rev-user{display:flex;align-items:center;gap:12px;}
+.rev-av{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-weight:800;font-size:16px;flex-shrink:0;
+}
+.rev-name{font-weight:700;font-size:14px;}
+.rev-title{font-size:12px;color:var(--gray-500);}
+
+/* ─── ACCOUNT DASHBOARD ─── */
+.dash-layout{display:flex;gap:28px;align-items:flex-start;}
+.dash-sidebar{flex:0 0 232px;background:white;border-radius:var(--r-lg);border:1px solid var(--gray-100);overflow:hidden;box-shadow:var(--shadow-xs);position:sticky;top:90px;}
+.dash-user{padding:26px;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;text-align:center;}
+.dash-av{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 12px;}
+.dash-user h4{font-size:16px;font-weight:700;}
+.dash-user p{font-size:12px;opacity:.8;margin-top:2px;}
+.dash-nav a{display:flex;align-items:center;gap:11px;padding:13px 20px;color:var(--gray-600);font-size:13.5px;font-weight:600;border-bottom:1px solid var(--gray-50);transition:all .2s;font-family:'Poppins',sans-serif;}
+.dash-nav a:hover,.dash-nav a.active{background:var(--primary-light);color:var(--primary);}
+.dash-content{flex:1;}
+.ord-card{background:white;border:1px solid var(--gray-100);border-radius:var(--r-md);padding:22px;margin-bottom:16px;box-shadow:var(--shadow-xs);}
+.ord-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.ord-id{font-size:12px;color:var(--gray-500);margin-bottom:4px;}
+.ord-items{font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;}
+.ord-status{padding:4px 13px;border-radius:var(--r-full);font-size:12px;font-weight:700;}
+.s-done{background:var(--success-light);color:var(--success);}
+.s-proc{background:var(--primary-light);color:var(--primary);}
+.s-pend{background:var(--warn-light);color:var(--warn);}
+.ord-detail{font-size:13.5px;color:var(--gray-500);margin-bottom:14px;}
+.ord-ftr{display:flex;justify-content:space-between;align-items:center;}
+.ord-total{font-size:19px;font-weight:800;font-family:'Poppins',sans-serif;}
+.reorder-btn{background:none;border:2px solid var(--primary);color:var(--primary);padding:8px 20px;border-radius:var(--r-sm);font-weight:700;font-family:'Poppins',sans-serif;font-size:13px;transition:all .2s;}
+.reorder-btn:hover{background:var(--primary);color:white;}
+
+/* ─── ABOUT ─── */
+.about-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--accent));padding:80px 40px;color:white;text-align:center;}
+.about-banner h1{font-size:46px;font-weight:900;margin-bottom:16px;}
+.about-banner p{font-size:18px;opacity:.85;max-width:580px;margin:0 auto;}
+.about-kpis{display:flex;justify-content:center;gap:64px;margin-top:50px;flex-wrap:wrap;}
+.kpi strong{font-size:44px;font-weight:900;display:block;font-family:'Poppins',sans-serif;}
+.kpi span{font-size:13px;opacity:.75;letter-spacing:.4px;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:24px;}
+.team-card{background:white;border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:30px 22px;text-align:center;box-shadow:var(--shadow-xs);}
+.team-av{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:30px;color:white;margin:0 auto 16px;}
+.team-card h4{font-size:16px;font-weight:700;margin-bottom:4px;}
+.team-role{font-size:12.5px;color:var(--primary);font-weight:600;margin-bottom:10px;}
+.team-card p{font-size:13px;color:var(--gray-500);line-height:1.65;}
+
+/* ─── BLOG ─── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;}
+.blog-card{background:white;border:1px solid var(--gray-100);border-radius:var(--r-lg);overflow:hidden;transition:all .25s;}
+.blog-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+.blog-thumb{height:195px;background:linear-gradient(135deg,var(--primary-light),var(--accent-light));display:flex;align-items:center;justify-content:center;font-size:64px;}
+.blog-body{padding:22px;}
+.blog-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:3px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:11px;}
+.blog-card h3{font-size:17.5px;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:9px;line-height:1.4;color:var(--gray-900);}
+.blog-card p{font-size:13px;color:var(--gray-500);line-height:1.7;margin-bottom:14px;}
+.blog-meta{font-size:12px;color:var(--gray-300);}
+
+/* ─── FAQ ─── */
+.faq-list{max-width:720px;margin:0 auto;}
+.faq-item{background:white;border:1px solid var(--gray-100);border-radius:var(--r-md);margin-bottom:12px;box-shadow:var(--shadow-xs);overflow:hidden;}
+.faq-q{padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-family:'Poppins',sans-serif;font-size:15px;color:var(--gray-900);transition:color .2s;}
+.faq-q:hover{color:var(--primary);}
+.faq-arrow{font-size:18px;transition:transform .25s;color:var(--gray-300);}
+.faq-a{padding:0 22px 18px;font-size:14px;color:var(--gray-500);line-height:1.75;display:none;}
+.faq-a.open{display:block;}
+.faq-arrow.open{transform:rotate(180deg);color:var(--primary);}
+
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+.contact-info{background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:var(--r-xl);padding:46px 40px;color:white;}
+.contact-info h2{font-size:28px;font-weight:800;margin-bottom:12px;}
+.contact-info p.sub{opacity:.82;margin-bottom:34px;line-height:1.65;}
+.c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;}
+.c-ico{width:44px;height:44px;background:rgba(255,255,255,.16);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.c-text h6{font-size:11px;opacity:.7;letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px;}
+.c-text p{font-size:14.5px;font-weight:600;}
+.emg-notice{background:rgba(255,255,255,.12);border-radius:var(--r-md);padding:16px;font-size:13px;opacity:.88;line-height:1.6;margin-top:24px;}
+.contact-form{background:white;border-radius:var(--r-xl);padding:46px 40px;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);}
+.contact-form h3{font-size:24px;font-weight:800;font-family:'Poppins',sans-serif;margin-bottom:26px;}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-size:12.5px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.6px;margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 15px;border:1.5px solid var(--gray-300);border-radius:var(--r-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--gray-900);outline:none;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--primary);}
+.fg textarea{height:115px;resize:vertical;}
+.form-submit{width:100%;background:var(--primary);color:white;border:none;padding:14px;border-radius:var(--r-sm);font-weight:700;font-family:'Poppins',sans-serif;font-size:15px;transition:all .2s;}
+.form-submit:hover{background:var(--primary-dark);}
+.map-mock{background:var(--gray-50);border-radius:var(--r-md);height:190px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--gray-500);font-size:14px;border:1px solid var(--gray-100);margin-top:18px;}
+
+/* ─── LEGAL PAGE ─── */
+.legal-wrap{max-width:820px;margin:0 auto;background:white;border-radius:var(--r-xl);padding:58px 60px;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);}
+.legal-wrap h1{font-size:34px;font-weight:900;margin-bottom:8px;}
+.legal-date{font-size:13px;color:var(--gray-500);margin-bottom:38px;}
+.legal-wrap h2{font-size:20px;font-weight:700;margin:30px 0 12px;color:var(--gray-900);}
+.legal-wrap p{font-size:14px;color:var(--gray-500);line-height:1.85;margin-bottom:14px;}
+
+/* ─── FOOTER ─── */
+footer{background:var(--gray-900);color:white;padding:60px 40px 28px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:48px;}
+.foot-brand p{color:rgba(255,255,255,.6);font-size:13.5px;line-height:1.75;margin:16px 0 22px;}
+.lic-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,137,123,.2);border:1px solid rgba(0,137,123,.4);color:#80CBC4;padding:8px 14px;border-radius:var(--r-sm);font-size:12px;font-weight:600;}
+.foot-col h5{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.45);margin-bottom:18px;}
+.foot-col a{display:block;color:rgba(255,255,255,.68);font-size:13.5px;margin-bottom:10px;transition:color .2s;}
+.foot-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,.45);}
+.foot-disclaimer{font-size:12px;color:rgba(255,255,255,.35);line-height:1.65;max-width:560px;}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+
+/* ─── GENERIC BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r-full);font-weight:700;font-family:'Poppins',sans-serif;font-size:14px;border:none;transition:all .2s;cursor:pointer;}
+.btn-primary{background:var(--primary);color:white;box-shadow:0 4px 14px rgba(21,101,192,.3);}
+.btn-primary:hover{background:var(--primary-dark);box-shadow:0 6px 20px rgba(21,101,192,.4);}
+.btn-accent{background:var(--accent);color:white;box-shadow:0 4px 14px rgba(0,137,123,.3);}
+.btn-accent:hover{background:var(--accent-dark);}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary);}
+.btn-outline:hover{background:var(--primary);color:white;}
+
+/* ─── TOAST ─── */
+.toast{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  background:var(--gray-900);color:white;padding:15px 22px;
+  border-radius:var(--r-md);font-size:14px;font-weight:600;
+  transform:translateY(80px);opacity:0;transition:all .3s;
+  box-shadow:var(--shadow-xl);
+}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.t-success{background:var(--accent);}
+.toast.t-warn{background:var(--warn);}
+
+/* ─── WHATSAPP FAB ─── */
+.wa-fab{
+  position:fixed;bottom:28px;left:28px;z-index:999;
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;color:white;border:none;font-size:26px;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);transition:all .2s;
+}
+.wa-fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55);}
+
+/* ─── CENTERED ─── */
+.tc{text-align:center;}
+.mt32{margin-top:32px;}
+.mt48{margin-top:48px;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  .header-bar{padding:12px 20px;}
+  .section{padding:50px 20px;}
+  .nav-inner{padding:0 20px;}
+  .hero-inner{flex-direction:column;}
+  .hero-right{display:none;}
+  .hero h1{font-size:38px;}
+  .contact-grid,.footer-grid{grid-template-columns:1fr;}
+  .pp-layout,.cart-layout,.dash-layout,.pd-layout{flex-direction:column;}
+  .pp-filters,.cart-summary,.dash-sidebar{flex:none;width:100%;}
+  .pd-gallery{flex:none;width:100%;position:relative;top:0;}
+  .legal-wrap{padding:36px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ EMERGENCY STRIP ════════════════ -->
+<div class="emergency-strip">
+  <span><span class="pulse"></span><strong>🚨 Emergency?</strong> Call <strong>1122 (Rescue)</strong> or <strong>115 (Edhi Foundation)</strong> — Do not rely on this pharmacy for emergencies.</span>
+  <span style="display:flex;gap:20px;">
+    <a href="#" onclick="showPage('about')">About Us</a>
+    <a href="#" onclick="showPage('blog')">Health Blog</a>
+    <a href="#" onclick="showPage('faq')">FAQs</a>
+    <a href="#" onclick="showPage('legal')">Legal</a>
+  </span>
+</div>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header>
+  <div class="header-bar">
+    <a class="logo" onclick="showPage('home')">
+      <div class="logo-mark">💊</div>
+      <div class="logo-text">
+        <strong>MediPharm</strong>
+        <small>Trusted Online Pharmacy</small>
+      </div>
+    </a>
+    <div class="search-wrap">
+      <input type="text" placeholder="Search medicines, brands, health conditions…">
+      <button>🔍</button>
+    </div>
+    <div class="header-actions">
+      <button class="hdr-btn" onclick="showPage('account')">
+        <span class="hdr-icon">👤</span>Account
+      </button>
+      <button class="hdr-btn" onclick="showPage('cart')">
+        <span class="hdr-icon">🛒</span>Cart
+        <span class="badge">3</span>
+      </button>
+      <button class="btn-upload-rx" onclick="showPage('upload')">📋 Upload Rx</button>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="active" onclick="navClick(this);showPage('home')">Home</a>
+      <a href="#" onclick="navClick(this);showPage('products')">Medicines</a>
+      <a href="#" onclick="navClick(this);showPage('upload')">Upload Prescription</a>
+      <a href="#" onclick="navClick(this);showPage('about')">About Us</a>
+      <a href="#" onclick="navClick(this);showPage('blog')">Health Blog</a>
+      <a href="#" onclick="navClick(this);showPage('faq')">FAQs</a>
+      <a href="#" onclick="navClick(this);showPage('contact')">Contact</a>
+      <a href="#" class="nav-emg" onclick="navClick(this);showPage('contact')">🚨 Emergency</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ════════════════════════════════════
+     PAGE: HOME
+════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-pill">✅ DRAP Licensed · Reg. No: PB-PH-2024-001</div>
+        <h1>Pakistan's Most <em>Trusted</em> Online Pharmacy</h1>
+        <p class="hero-desc">Genuine medicines, expert pharmacists, and doorstep delivery — because your health deserves nothing less than the best.</p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" onclick="showPage('products')">🛒 Shop Medicines</button>
+          <button class="btn-hero-ghost" onclick="showPage('upload')">📋 Upload Prescription</button>
+        </div>
+        <div class="hero-metrics">
+          <div class="hero-metric"><span class="num">50K+</span><span class="lbl">Happy Patients</span></div>
+          <div class="hero-metric"><span class="num">10K+</span><span class="lbl">Products</span></div>
+          <div class="hero-metric"><span class="num">24/7</span><span class="lbl">Expert Support</span></div>
+          <div class="hero-metric"><span class="num">100%</span><span class="lbl">Genuine</span></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="rx-card">
+          <h3>📋 Upload Prescription</h3>
+          <div class="rx-drop" onclick="showPage('upload')">
+            <span class="drop-icon">📄</span>
+            <div class="rx-formats">
+              <span class="rx-fmt">JPG</span><span class="rx-fmt">PNG</span><span class="rx-fmt">PDF</span>
+            </div>
+            <p>Drop your prescription here or tap to browse</p>
+          </div>
+          <button class="rx-upload-btn" onclick="showPage('upload')">Upload &amp; Order Now</button>
+          <p class="rx-note">🔒 256-bit encrypted · Reviewed by licensed PharmD</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Browse by Category</span>
+        <h2>Find What You Need</h2>
+        <p>Over 10,000 genuine healthcare products across all major categories</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">1.2K+</span><span class="cat-icon">💊</span><h4>Tablets & Capsules</h4><p>Antibiotics, vitamins & more</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">450+</span><span class="cat-icon">🍶</span><h4>Syrups & Drops</h4><p>Cough, vitamins, paediatric</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">320+</span><span class="cat-icon">💉</span><h4>Injections</h4><p>Vaccines & injectables</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">200+</span><span class="cat-icon">🩺</span><h4>Medical Devices</h4><p>BP monitors, glucometers</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">180+</span><span class="cat-icon">👶</span><h4>Baby Care</h4><p>Formula, diapers, care</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">250+</span><span class="cat-icon">🌿</span><h4>Herbal & Supplements</h4><p>Natural & dietary</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">150+</span><span class="cat-icon">🩹</span><h4>First Aid</h4><p>Bandages, antiseptics</p></div>
+        <div class="cat-card" onclick="showPage('products')"><span class="cat-count">120+</span><span class="cat-icon">✨</span><h4>Personal Care</h4><p>Skin, hair & hygiene</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag green">Featured Products</span>
+        <h2>Best Selling Medicines</h2>
+        <p>Most ordered, trusted by thousands of patients across Pakistan</p>
+      </div>
+      <div class="products-grid">
+        <div class="prod-card" onclick="showPage('product-detail')">
+          <div class="prod-thumb"><div class="thumb-bg"></div>💊<span class="p-badge otc">OTC</span><span class="p-offer">20% OFF</span></div>
+          <div class="prod-body"><div class="prod-brand">Getz Pharma</div><div class="prod-name">Panadol Extra</div><div class="prod-dose">Paracetamol 500mg + Caffeine | 20 Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 95</span><span class="p-was">Rs. 120</span></div><button class="prod-cta can-buy" onclick="event.stopPropagation();addToCart(this)">Add to Cart</button></div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-thumb"><div class="thumb-bg"></div>🔴<span class="p-badge rx">Rx Required</span></div>
+          <div class="prod-body"><div class="prod-brand">Abbott</div><div class="prod-name">Augmentin 625mg</div><div class="prod-dose">Amoxicillin + Clavulanic Acid | 14 Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 850</span></div><button class="prod-cta need-rx" onclick="rxAlert()">📋 Upload Prescription</button></div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-thumb"><div class="thumb-bg"></div>🍶<span class="p-badge otc">OTC</span></div>
+          <div class="prod-body"><div class="prod-brand">Pfizer</div><div class="prod-name">Benylin Cough Syrup</div><div class="prod-dose">Diphenhydramine 150ml</div><div class="prod-pricing"><span class="p-now">Rs. 260</span><span class="p-was">Rs. 300</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+        </div>
+        <div class="prod-card">
+          <div class="prod-thumb"><div class="thumb-bg"></div>🩺<span class="p-badge otc">OTC</span><span class="p-offer">Bundle</span></div>
+          <div class="prod-body"><div class="prod-brand">Omron Healthcare</div><div class="prod-name">BP Monitor HEM-7120</div><div class="prod-dose">Automatic Upper Arm | Clinically Validated</div><div class="prod-pricing"><span class="p-now">Rs. 4,500</span><span class="p-was">Rs. 5,200</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="tc mt48"><button class="btn btn-primary" onclick="showPage('products')">View All Products →</button></div>
+    </div>
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Why Choose Us</span>
+        <h2>Trusted by 50,000+ Patients</h2>
+        <p>We hold ourselves to the highest standards of pharmacy practice, safety, and patient care</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card"><div class="t-icon">🏥</div><h4>DRAP Licensed</h4><p>Fully licensed by Drug Regulatory Authority Pakistan. License No: PB-PH-2024-001. Strict compliance with all pharmaceutical regulations.</p></div>
+        <div class="trust-card"><div class="t-icon">✅</div><h4>100% Genuine Medicines</h4><p>All medicines sourced directly from verified manufacturers and DRAP-authorized distributors only. No counterfeits, guaranteed.</p></div>
+        <div class="trust-card"><div class="t-icon">🚀</div><h4>Fast Doorstep Delivery</h4><p>Same-day delivery in Lahore for orders before 3 PM. Next-day delivery across Pakistan with real-time tracking.</p></div>
+        <div class="trust-card"><div class="t-icon">👨‍⚕️</div><h4>Expert PharmD Team</h4><p>Qualified PharmD pharmacists available 24/7 to verify prescriptions and answer your medicine-related queries.</p></div>
+        <div class="trust-card"><div class="t-icon">🔒</div><h4>Secure & Private</h4><p>Your prescriptions and health data are encrypted with 256-bit SSL and stored on compliant secure servers.</p></div>
+        <div class="trust-card"><div class="t-icon">↩️</div><h4>Hassle-Free Returns</h4><p>7-day return policy on sealed, unopened medicines. Wrong delivery? 100% refund or same-day replacement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag green">Testimonials</span>
+        <h2>What Our Patients Say</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Ordered medicines at midnight for my father — delivered in under 2 hours! Genuine products and the pharmacist even called to confirm the dosage. Absolutely amazing service!"</p><div class="rev-user"><div class="rev-av">A</div><div><div class="rev-name">Ahmed Raza</div><div class="rev-title">Verified Customer · Lahore</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"The prescription upload is such a lifesaver. Submitted my doctor's prescription and medicines arrived the same evening. Everything was properly labelled and sealed!"</p><div class="rev-user"><div class="rev-av">F</div><div><div class="rev-name">Fatima Malik</div><div class="rev-title">Verified Customer · Karachi</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★☆</div><p class="rev-text">"Finally a pharmacy that doesn't substitute with unknowns. Prices are fair, packaging tamper-proof. The online tracking feature is also very handy. Highly recommended!"</p><div class="rev-user"><div class="rev-av">U</div><div><div class="rev-name">Usman Khalid</div><div class="rev-title">Verified Customer · Islamabad</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: PRODUCTS
+════════════════════════════════════ -->
+<div id="page-products" class="page">
+  <section class="section">
+    <div class="section-inner-wide">
+      <div class="pp-layout">
+
+        <!-- Sidebar Filters -->
+        <div class="pp-filters">
+          <div class="filter-box">
+            <h5>Prescription Type</h5>
+            <label class="chk-option"><input type="checkbox" checked> <label>OTC (No Prescription)</label></label>
+            <label class="chk-option"><input type="checkbox" checked> <label>Prescription Required</label></label>
+          </div>
+          <div class="filter-box">
+            <h5>Price Range</h5>
+            <div id="priceLabel" style="font-size:13px;color:var(--gray-700);font-weight:600;margin-bottom:8px;">Rs. 0 — Rs. 5,000</div>
+            <input type="range" class="range-input" min="0" max="5000" value="5000" oninput="document.getElementById('priceLabel').textContent='Rs. 0 — Rs. '+this.value.toLocaleString()">
+            <div class="range-labels"><span>Rs. 0</span><span>Rs. 5,000</span></div>
+          </div>
+          <div class="filter-box">
+            <h5>Brand</h5>
+            <label class="chk-option"><input type="checkbox" checked> <label>Getz Pharma</label></label>
+            <label class="chk-option"><input type="checkbox" checked> <label>Abbott</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Pfizer</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Highnoon Labs</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Sanofi</label></label>
+          </div>
+          <div class="filter-box">
+            <h5>Category</h5>
+            <label class="chk-option"><input type="checkbox" checked> <label>Tablets & Capsules</label></label>
+            <label class="chk-option"><input type="checkbox" checked> <label>Syrups</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Injections</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Devices</label></label>
+            <label class="chk-option"><input type="checkbox"> <label>Supplements</label></label>
+          </div>
+        </div>
+
+        <!-- Product Listing -->
+        <div class="pp-content">
+          <div class="pp-toolbar">
+            <p class="pp-count">Showing <strong>48</strong> of <strong>10,000+</strong> products</p>
+            <select class="sort-sel">
+              <option>Sort: Most Popular</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest First</option>
+              <option>Best Rated</option>
+            </select>
+          </div>
+          <div class="products-grid">
+            <div class="prod-card" onclick="showPage('product-detail')">
+              <div class="prod-thumb"><div class="thumb-bg"></div>💊<span class="p-badge otc">OTC</span><span class="p-offer">20% OFF</span></div>
+              <div class="prod-body"><div class="prod-brand">Getz Pharma</div><div class="prod-name">Panadol Extra</div><div class="prod-dose">Paracetamol 500mg + Caffeine | 20 Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 95</span><span class="p-was">Rs. 120</span></div><button class="prod-cta can-buy" onclick="event.stopPropagation();addToCart(this)">Add to Cart</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>🔴<span class="p-badge rx">Rx Required</span></div>
+              <div class="prod-body"><div class="prod-brand">Abbott</div><div class="prod-name">Augmentin 625mg</div><div class="prod-dose">Amoxicillin + Clavulanic Acid | 14 Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 850</span></div><button class="prod-cta need-rx" onclick="rxAlert()">📋 Upload Prescription</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>🍶<span class="p-badge otc">OTC</span></div>
+              <div class="prod-body"><div class="prod-brand">Pfizer</div><div class="prod-name">Benylin Cough Syrup</div><div class="prod-dose">Diphenhydramine 150ml</div><div class="prod-pricing"><span class="p-now">Rs. 260</span><span class="p-was">Rs. 300</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>🌡️<span class="p-badge otc">OTC</span></div>
+              <div class="prod-body"><div class="prod-brand">Omron</div><div class="prod-name">Digital Thermometer</div><div class="prod-dose">Clinical Grade | Memory Function</div><div class="prod-pricing"><span class="p-now">Rs. 750</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>💊<span class="p-badge rx">Rx Required</span></div>
+              <div class="prod-body"><div class="prod-brand">Sanofi</div><div class="prod-name">Glucophage 500mg</div><div class="prod-dose">Metformin HCl | 60 Tablets</div><div class="prod-pricing"><span class="p-now">Rs. 320</span></div><button class="prod-cta need-rx" onclick="rxAlert()">📋 Upload Prescription</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>🌿<span class="p-badge otc">OTC</span><span class="p-offer">Bundle</span></div>
+              <div class="prod-body"><div class="prod-brand">EveryVita</div><div class="prod-name">Vitamin C 1000mg</div><div class="prod-dose">Ascorbic Acid | 30 Effervescent Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 580</span><span class="p-was">Rs. 700</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>💊<span class="p-badge rx">Rx Required</span></div>
+              <div class="prod-body"><div class="prod-brand">Highnoon</div><div class="prod-name">Loprin 75mg</div><div class="prod-dose">Aspirin EC Tablets | 30 Tabs</div><div class="prod-pricing"><span class="p-now">Rs. 180</span></div><button class="prod-cta need-rx" onclick="rxAlert()">📋 Upload Prescription</button></div>
+            </div>
+            <div class="prod-card">
+              <div class="prod-thumb"><div class="thumb-bg"></div>👶<span class="p-badge otc">OTC</span></div>
+              <div class="prod-body"><div class="prod-brand">Nestle</div><div class="prod-name">NAN Pro 1 (400g)</div><div class="prod-dose">Starter Infant Formula 0-6 Months</div><div class="prod-pricing"><span class="p-now">Rs. 1,680</span></div><button class="prod-cta can-buy" onclick="addToCart(this)">Add to Cart</button></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div><!-- /page-products -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: PRODUCT DETAIL
+════════════════════════════════════ -->
+<div id="page-product-detail" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <!-- Breadcrumb -->
+      <p style="font-size:13px;color:var(--gray-500);margin-bottom:32px;">
+        <a onclick="showPage('home')" style="cursor:pointer;color:var(--primary);">Home</a> › 
+        <a onclick="showPage('products')" style="cursor:pointer;color:var(--primary);">Medicines</a> › 
+        Panadol Extra
+      </p>
+      <div class="pd-layout">
+        <div class="pd-gallery">💊</div>
+        <div class="pd-info">
+          <div class="pd-brand">Getz Pharma</div>
+          <div class="pd-name">Panadol Extra Tablets</div>
+          <div class="pd-generic">Generic Name: Paracetamol 500mg + Caffeine 65mg</div>
+          <div style="margin-bottom:20px;"><span class="p-badge otc" style="position:relative;top:0;left:0;display:inline-block;">OTC — No Prescription Required</span></div>
+          <div class="pd-price">Rs. 95 <small style="font-size:17px;text-decoration:line-through;color:var(--gray-300);font-weight:400;">Rs. 120</small></div>
+          <div class="pd-actions">
+            <button class="btn-buy" onclick="addToCart(this)">Add to Cart</button>
+            <button class="btn-cart" onclick="showPage('cart')">Buy Now</button>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab(this,'t-overview')">Overview</button>
+            <button class="tab-btn" onclick="switchTab(this,'t-dosage')">Dosage</button>
+            <button class="tab-btn" onclick="switchTab(this,'t-sideeffects')">Side Effects</button>
+            <button class="tab-btn" onclick="switchTab(this,'t-storage')">Storage</button>
+          </div>
+
+          <div id="t-overview" class="tab-pane active">
+            <div class="info-row"><h6>Composition</h6><p>Each tablet: Paracetamol 500mg, Caffeine 65mg. Excipients: Maize starch, Powdered cellulose, Pregelatinised starch, Stearic acid.</p></div>
+            <div class="info-row"><h6>Uses / Indications</h6><p>Relief of mild to moderate pain including headache, migraine, dental pain, period pain, backache, and rheumatic pain. Also reduces fever.</p></div>
+            <div class="info-row"><h6>Manufacturer</h6><p>Getz Pharma (Pvt.) Ltd., Karachi, Pakistan. Batch: GP-2024-X7 · Mfg: Jan 2024 · Exp: Jan 2026</p></div>
+          </div>
+
+          <div id="t-dosage" class="tab-pane">
+            <div class="warn-box">⚠️ <strong>Important:</strong> Dosage information below is for reference only and must not replace your doctor's or pharmacist's specific instructions for your condition.</div>
+            <div class="info-row"><h6>Adults & Children Over 12</h6><p>1–2 tablets every 4–6 hours as needed. Do not exceed 8 tablets in 24 hours or take more frequently than every 4 hours.</p></div>
+            <div class="info-row"><h6>Children Under 12</h6><p>Not recommended. Use an age-appropriate formulation under medical supervision only.</p></div>
+            <div class="info-row"><h6>Special Populations</h6><p>Caution in liver or kidney impairment. Consult your pharmacist or physician before use.</p></div>
+          </div>
+
+          <div id="t-sideeffects" class="tab-pane">
+            <div class="info-row"><h6>Common Side Effects</h6><p>Nausea, stomach upset, skin rash (rare). The caffeine component may cause mild insomnia or nervousness in caffeine-sensitive individuals.</p></div>
+            <div class="info-row"><h6>Serious Warnings</h6><p>Do not use if you have liver disease, kidney disease, or are taking other paracetamol-containing products. Overdose causes serious liver damage — seek emergency care immediately.</p></div>
+          </div>
+
+          <div id="t-storage" class="tab-pane">
+            <div class="info-row"><h6>Storage Conditions</h6><p>Store below 25°C in a dry place. Protect from direct sunlight and moisture. Keep out of reach of children. Do not use after the expiry date printed on the pack.</p></div>
+          </div>
+
+          <div class="disclaimer-box">
+            ℹ️ <strong>Medical Disclaimer:</strong> The information on this page is for <em>educational purposes only</em> and does not constitute medical advice. Always consult a registered doctor or licensed pharmacist before starting, changing, or stopping any medication. MediPharm is not responsible for any harm resulting from reliance on this information.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-product-detail -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: UPLOAD PRESCRIPTION
+════════════════════════════════════ -->
+<div id="page-upload" class="page">
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Prescription Service</span>
+        <h2>Upload Your Prescription</h2>
+        <p>Secure, private, and reviewed by our licensed PharmD pharmacists within 30 minutes</p>
+      </div>
+      <!-- Steps -->
+      <div class="up-steps">
+        <div class="up-step"><div class="step-dot active">1</div><div class="step-lbl active">Upload</div></div>
+        <div class="step-line"></div>
+        <div class="up-step"><div class="step-dot">2</div><div class="step-lbl">Pharmacist Review</div></div>
+        <div class="step-line"></div>
+        <div class="up-step"><div class="step-dot">3</div><div class="step-lbl">Confirm Order</div></div>
+        <div class="step-line"></div>
+        <div class="up-step"><div class="step-dot">4</div><div class="step-lbl">Delivery</div></div>
+      </div>
+
+      <!-- Drop Zone -->
+      <div class="up-zone" onclick="showToast('✅ Prescription uploaded! Our pharmacist will review it shortly.','t-success')">
+        <div class="zone-icon">📋</div>
+        <h3>Drop Your Prescription Here</h3>
+        <p>Upload a clear photo or scanned copy of your doctor's prescription</p>
+        <div class="fmt-chips">
+          <span class="fmt-chip">JPG</span>
+          <span class="fmt-chip">PNG</span>
+          <span class="fmt-chip">PDF</span>
+          <span class="fmt-chip">HEIC</span>
+        </div>
+        <br>
+        <button class="btn btn-primary" style="margin-top:10px;" onclick="event.stopPropagation();showToast('✅ File browser opened!','t-success')">📁 Browse Files</button>
+      </div>
+
+      <!-- Security Note -->
+      <div class="up-sec">
+        <div class="sec-ico">🔒</div>
+        <div>
+          <h5>Your Privacy is Our Highest Priority</h5>
+          <p>Your prescription and all health information are protected by 256-bit SSL encryption. Data is only accessible by our licensed pharmacists and is never shared with third parties. We comply fully with Pakistan's PDPA (Personal Data Protection Act) regulations.</p>
+        </div>
+      </div>
+
+      <!-- Requirements -->
+      <div class="up-sec">
+        <div class="sec-ico">📝</div>
+        <div>
+          <h5>Prescription Requirements</h5>
+          <p>
+            • Must be written by a PMDC-registered doctor<br>
+            • Dated within the last 6 months<br>
+            • Must show patient name, doctor name &amp; PMDC registration number<br>
+            • All text must be clearly legible<br>
+            • Original prescription may be required for Schedule-H / controlled substances
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-upload -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: CART & CHECKOUT
+════════════════════════════════════ -->
+<div id="page-cart" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <h2 style="font-size:30px;font-weight:900;margin-bottom:8px;">🛒 Your Cart</h2>
+      <p style="color:var(--gray-500);margin-bottom:36px;">Review your items before checkout</p>
+      <div class="cart-layout">
+        <!-- Items -->
+        <div class="cart-list">
+          <div class="cart-item">
+            <div class="ci-img">💊</div>
+            <div class="ci-info">
+              <div class="ci-name">Panadol Extra</div>
+              <div class="ci-dose">Paracetamol 500mg + Caffeine | 20 Tabs</div>
+              <div class="qty-wrap">
+                <button class="qty-btn">−</button>
+                <span class="qty-val">2</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="ci-price">Rs. 190</div>
+          </div>
+          <div class="cart-item">
+            <div class="ci-img">🍶</div>
+            <div class="ci-info">
+              <div class="ci-name">Benylin Cough Syrup</div>
+              <div class="ci-dose">Diphenhydramine 150ml</div>
+              <div class="qty-wrap">
+                <button class="qty-btn">−</button>
+                <span class="qty-val">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="ci-price">Rs. 260</div>
+          </div>
+          <div class="cart-item">
+            <div class="ci-img">🌿</div>
+            <div class="ci-info">
+              <div class="ci-name">Vitamin C 1000mg</div>
+              <div class="ci-dose">30 Effervescent Tablets</div>
+              <div class="qty-wrap">
+                <button class="qty-btn">−</button>
+                <span class="qty-val">1</span>
+                <button class="qty-btn">+</button>
+              </div>
+            </div>
+            <div class="ci-price">Rs. 580</div>
+          </div>
+          <div style="background:var(--warn-light);border:1px solid #FFCC80;border-radius:var(--r-md);padding:18px;font-size:13.5px;color:#7B3500;display:flex;align-items:flex-start;gap:12px;">
+            <span style="font-size:24px;flex-shrink:0;">⚠️</span>
+            <div>
+              <strong>Prescription items in your order?</strong><br>
+              Rx medicines will only be dispensed after a pharmacist verifies your prescription. Please upload it before checkout.
+              <div style="margin-top:12px;"><button class="btn btn-outline" style="font-size:12.5px;padding:8px 18px;" onclick="showPage('upload')">Upload Prescription</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="cart-summary">
+          <div class="sum-card">
+            <h3>Order Summary</h3>
+            <div class="sum-row"><span>Subtotal (3 items)</span><span>Rs. 1,030</span></div>
+            <div class="sum-row"><span>Delivery Charges</span><span>Rs. 150</span></div>
+            <div class="sum-row"><span style="color:var(--accent);">Promo Discount</span><span style="color:var(--accent);">− Rs. 50</span></div>
+            <div class="sum-row total"><span>Total</span><span>Rs. 1,130</span></div>
+
+            <p style="font-size:12.5px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px;">Delivery Time</p>
+            <div class="delivery-opts">
+              <div class="d-opt sel"><strong>🚀 Same Day</strong>+Rs. 50</div>
+              <div class="d-opt" onclick="this.classList.toggle('sel');this.previousElementSibling.classList.toggle('sel')"><strong>📦 Next Day</strong>Free</div>
+            </div>
+
+            <p style="font-size:12.5px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px;">Payment Method</p>
+            <div style="display:flex;gap:8px;flex-direction:column;">
+              <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--primary);border-radius:var(--r-sm);cursor:pointer;background:var(--primary-light);font-size:13.5px;font-weight:600;color:var(--primary);"><input type="radio" name="pay" checked style="accent-color:var(--primary);"> 💳 Debit / Credit Card</label>
+              <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--gray-300);border-radius:var(--r-sm);cursor:pointer;font-size:13.5px;font-weight:600;color:var(--gray-700);"><input type="radio" name="pay" style="accent-color:var(--primary);"> 💵 Cash on Delivery</label>
+              <label style="display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--gray-300);border-radius:var(--r-sm);cursor:pointer;font-size:13.5px;font-weight:600;color:var(--gray-700);"><input type="radio" name="pay" style="accent-color:var(--primary);"> 📱 Mobile Wallet</label>
+            </div>
+
+            <button class="checkout-cta" onclick="showToast('✅ Order placed successfully! Track in My Account.','t-success')">Proceed to Checkout →</button>
+            <p style="font-size:11.5px;text-align:center;color:var(--gray-500);margin-top:12px;">🔒 Secured by 256-bit SSL Encryption</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-cart -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: ACCOUNT DASHBOARD
+════════════════════════════════════ -->
+<div id="page-account" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="dash-layout">
+        <div class="dash-sidebar">
+          <div class="dash-user">
+            <div class="dash-av">👤</div>
+            <h4>Ahmed Raza</h4>
+            <p>ahmed.raza@gmail.com</p>
+          </div>
+          <div class="dash-nav">
+            <a href="#" class="active" onclick="event.preventDefault()">📦 My Orders</a>
+            <a href="#" onclick="event.preventDefault()">📋 My Prescriptions</a>
+            <a href="#" onclick="event.preventDefault()">📍 Saved Addresses</a>
+            <a href="#" onclick="event.preventDefault()">🔔 Medicine Reminders</a>
+            <a href="#" onclick="showToast('⚙️ Account settings coming soon')">⚙️ Account Settings</a>
+            <a href="#" onclick="showToast('👋 You have been logged out')">🚪 Logout</a>
+          </div>
+        </div>
+        <div class="dash-content">
+          <h2 style="font-size:26px;font-weight:800;margin-bottom:24px;">📦 My Orders</h2>
+
+          <div class="ord-card">
+            <div class="ord-hdr">
+              <div><div class="ord-id">Order #MP-2025-00892 · 15 Jan 2025</div><div class="ord-items">Panadol Extra × 2, Benylin Cough Syrup × 1</div></div>
+              <span class="ord-status s-done">✅ Delivered</span>
+            </div>
+            <div class="ord-detail">📍 House 15, Block C, Gulberg III, Lahore · Same Day Delivery · 2 hrs 18 min</div>
+            <div class="ord-ftr"><div class="ord-total">Rs. 450</div><button class="reorder-btn" onclick="addToCart(this)">🔄 Reorder</button></div>
+          </div>
+
+          <div class="ord-card">
+            <div class="ord-hdr">
+              <div><div class="ord-id">Order #MP-2025-00745 · 2 Jan 2025</div><div class="ord-items">Augmentin 625mg × 1</div></div>
+              <span class="ord-status s-done">✅ Delivered</span>
+            </div>
+            <div class="ord-detail">📋 Prescription Verified ✓ · Same Day Delivery · House 15, Block C, Gulberg III</div>
+            <div class="ord-ftr"><div class="ord-total">Rs. 850</div><button class="reorder-btn" onclick="rxAlert()">🔄 Reorder (needs Rx)</button></div>
+          </div>
+
+          <div class="ord-card" style="border-color:var(--primary-light);">
+            <div class="ord-hdr">
+              <div><div class="ord-id">Order #MP-2025-00012 · 30 Jan 2025</div><div class="ord-items">Vitamin C 1000mg × 2, Glucophage 500mg × 1</div></div>
+              <span class="ord-status s-proc">🔄 Processing</span>
+            </div>
+            <div class="ord-detail">📋 Prescription under pharmacist review · Expected: Today by 6:00 PM</div>
+            <div class="ord-ftr"><div class="ord-total">Rs. 1,480</div><button class="reorder-btn" onclick="showToast('📍 Order is out for delivery')">📍 Track Order</button></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-account -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: ABOUT US
+════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="about-banner">
+    <span class="s-tag" style="background:rgba(255,255,255,.2);color:white;border:1px solid rgba(255,255,255,.3);">Est. 2018 · Lahore, Pakistan</span>
+    <h1>About MediPharm</h1>
+    <p>Built on a foundation of trust, care, and the belief that every Pakistani deserves access to genuine, affordable medicines.</p>
+    <div class="about-kpis">
+      <div class="kpi"><strong>2018</strong><span>Founded</span></div>
+      <div class="kpi"><strong>50K+</strong><span>Patients Served</span></div>
+      <div class="kpi"><strong>10K+</strong><span>Products Listed</span></div>
+      <div class="kpi"><strong>15+</strong><span>PharmD Staff</span></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div style="max-width:800px;margin:0 auto 60px;text-align:center;">
+        <span class="s-tag">Our Story</span>
+        <h2 style="margin:12px 0 18px;">Medicine Should Be Accessible to All</h2>
+        <p style="font-size:16px;color:var(--gray-500);line-height:1.85;">MediPharm was founded in 2018 with a single mission — to make genuine, affordable medicines accessible to every Pakistani, regardless of where they live. What started as a licensed dispensary on Mall Road Lahore has grown into Pakistan's leading online pharmacy, serving over 50,000 patients nationwide. We are fully licensed by DRAP and our team of 15+ qualified PharmD pharmacists ensures every single order is handled with the highest standards of pharmaceutical care, accuracy, and patient safety.</p>
+      </div>
+      <div class="sh"><span class="s-tag green">Our Team</span><h2>Meet Our Pharmacists</h2></div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-av">👨‍⚕️</div><h4>Dr. Asim Bajwa</h4><div class="team-role">Chief Pharmacist — PharmD (UCP)</div><p>15+ years in clinical pharmacy. Specialises in chronic disease management and rational medicine use.</p></div>
+        <div class="team-card"><div class="team-av">👩‍⚕️</div><h4>Dr. Sara Qureshi</h4><div class="team-role">Head of Prescriptions</div><p>Expert in paediatric and geriatric pharmacology. Oversees all Rx verification and patient safety protocols.</p></div>
+        <div class="team-card"><div class="team-av">👨‍⚕️</div><h4>Dr. Hamza Ali</h4><div class="team-role">Patient Counselling</div><p>Dedicated to patient education, medication adherence, and drug interaction screening. Available 24/7.</p></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: HEALTH BLOG
+════════════════════════════════════ -->
+<div id="page-blog" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Health Blog</span>
+        <h2>Medicine Awareness & Health Tips</h2>
+        <p>Educational articles reviewed by our licensed PharmD pharmacists and medical professionals</p>
+      </div>
+      <div style="background:var(--warn-light);border:1px solid #FFB74D;border-radius:var(--r-md);padding:16px 20px;font-size:13.5px;color:#7B3500;margin-bottom:42px;text-align:center;">
+        ⚕️ All articles on this blog are <strong>for educational and informational purposes only</strong>. They do not constitute medical advice. Always consult a qualified healthcare professional before making any health decisions.
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-thumb">🩺</div>
+          <div class="blog-body">
+            <span class="blog-tag">Diabetes</span>
+            <h3>Managing Type 2 Diabetes: A Medication Guide for Patients</h3>
+            <p>An overview of commonly prescribed diabetes medicines in Pakistan, how they work, and essential lifestyle tips to complement your treatment plan.</p>
+            <div class="blog-meta">By Dr. Asim Bajwa (PharmD) · January 20, 2025</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb">🌿</div>
+          <div class="blog-body">
+            <span class="blog-tag">Supplements</span>
+            <h3>Vitamin D Deficiency in Pakistan: What You Must Know</h3>
+            <p>Pakistan has one of the highest global rates of Vitamin D deficiency. Learn the signs, causes, health risks, and safe supplementation options.</p>
+            <div class="blog-meta">By Dr. Sara Qureshi (PharmD) · January 15, 2025</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb">🤧</div>
+          <div class="blog-body">
+            <span class="blog-tag">Seasonal Health</span>
+            <h3>Winter Cold & Flu: OTC Medicines That Actually Work</h3>
+            <p>A pharmacist's honest guide to choosing the right over-the-counter cold and flu medicines during Pakistan's winter season, without overmedicating.</p>
+            <div class="blog-meta">By Dr. Hamza Ali (PharmD) · December 28, 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: FAQs
+════════════════════════════════════ -->
+<div id="page-faq" class="page">
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Help Center</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about our services, prescriptions, and deliveries</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do I upload my prescription? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">Go to the "Upload Prescription" page from the navigation menu or click the green "Upload Rx" button in the header. We accept JPG, PNG, PDF, and HEIC formats. Take a clear photo of your doctor's prescription and upload it. Our pharmacist will review it within 30 minutes during business hours (9 AM–10 PM) and instantly during emergencies.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can I order medicines without a prescription? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">Yes! Over-the-counter (OTC) medicines — marked with a green "OTC" badge — can be ordered freely without any prescription. Products marked with a red "Rx Required" badge are Schedule-H / prescription-only medicines under DRAP regulations and require a valid prescription from a PMDC-registered doctor before dispensing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How long does delivery take? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">We offer same-day delivery within Lahore for orders placed before 3:00 PM (add-on fee of Rs. 50). Next-day delivery is available across major cities including Karachi, Islamabad, Rawalpindi, Faisalabad, and Multan. You'll receive a real-time tracking link via SMS once your order is dispatched.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Are your medicines 100% genuine? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">Absolutely. MediPharm is a DRAP-licensed pharmacy (License No: PB-PH-2024-001) and all medicines are sourced directly from DRAP-verified manufacturers or their authorized distributors. We maintain strict cold-chain management for temperature-sensitive medicines and conduct regular quality checks. No counterfeits or substitutions — ever.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is your refund and return policy? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">We offer a 7-day return policy on sealed, unopened medicines. Once a medicine's tamper-evident seal is broken, it cannot be returned for safety and hygiene reasons. For wrong, damaged, or expired deliveries, we offer a 100% refund or same-day replacement — no questions asked. Contact us within 24 hours of delivery for fastest resolution.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How is my prescription and health data protected? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">Your prescription and all health information are protected by 256-bit SSL encryption and stored on secure, PDPA-compliant servers. Access is strictly limited to our licensed pharmacists on a need-to-know basis. We never sell, share, or disclose your health data to any third parties, advertisers, or government bodies except where required by law.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-arrow">▼</span></div>
+          <div class="faq-a">We accept Debit/Credit Cards (Visa, Mastercard), Cash on Delivery (COD) across all serviceable cities, and Mobile Wallets (JazzCash, EasyPaisa). All online transactions are processed through a PCI-DSS compliant payment gateway with 3D Secure authentication.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-faq -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: CONTACT US
+════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="section-inner">
+      <div class="sh">
+        <span class="s-tag">Get in Touch</span>
+        <h2>Contact Us</h2>
+        <p>Our pharmacists and support team are here to help you</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>We're Here for You</h2>
+          <p class="sub">Our PharmD pharmacists are available 24/7 for emergency medicine queries. Support team available during regular hours.</p>
+          <div class="c-item"><div class="c-ico">📍</div><div class="c-text"><h6>Pharmacy Address</h6><p>12-B, Main Boulevard, Gulberg II,<br>Lahore, Punjab 54000, Pakistan</p></div></div>
+          <div class="c-item"><div class="c-ico">📞</div><div class="c-text"><h6>Phone & WhatsApp</h6><p>+92-300-1234567 (24/7 Emergency)<br>+92-42-35761234 (Office Hours)</p></div></div>
+          <div class="c-item"><div class="c-ico">✉️</div><div class="c-text"><h6>Email</h6><p>care@medipharm.pk<br>prescriptions@medipharm.pk</p></div></div>
+          <div class="c-item"><div class="c-ico">⏰</div><div class="c-text"><h6>Working Hours</h6><p>Mon–Sat: 9:00 AM – 10:00 PM<br>Sunday: 10:00 AM – 6:00 PM<br>🚨 Emergency: 24 / 7 / 365</p></div></div>
+          <div class="emg-notice">⚠️ <strong>Emergency Notice:</strong> MediPharm is not a substitute for emergency medical services. If you or someone near you is in a life-threatening situation, please immediately call <strong>1122 (Rescue)</strong> or go to the nearest A&E department.</div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="e.g. Ahmed Khan"></div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
+          <div class="fg"><label>Subject</label>
+            <select>
+              <option>General Inquiry</option>
+              <option>Prescription Query</option>
+              <option>Order / Delivery Issue</option>
+              <option>Refund Request</option>
+              <option>Medicine Availability</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea placeholder="Describe how we can help you…"></textarea></div>
+          <button class="form-submit" onclick="showToast('✅ Message sent! We will reply within 2 hours.','t-success')">Send Message →</button>
+          <div class="map-mock"><span style="font-size:36px;">🗺️</span><span>Google Map — 12-B Main Blvd, Gulberg II, Lahore</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+
+<!-- ════════════════════════════════════
+     PAGE: LEGAL PAGES
+════════════════════════════════════ -->
+<div id="page-legal" class="page">
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
+        <button class="btn btn-primary" id="lt-pp" onclick="showLegal('pp')">Privacy Policy</button>
+        <button class="btn btn-outline" id="lt-tc" onclick="showLegal('tc')">Terms & Conditions</button>
+        <button class="btn btn-outline" id="lt-rp" onclick="showLegal('rp')">Refund Policy</button>
+        <button class="btn btn-outline" id="lt-dc" onclick="showLegal('dc')">Disclaimer</button>
+      </div>
+
+      <div id="legal-pp" class="legal-wrap">
+        <h1>Privacy Policy</h1>
+        <p class="legal-date">Last updated: January 1, 2025</p>
+        <h2>1. Information We Collect</h2>
+        <p>MediPharm collects personal information including your name, contact details, delivery address, payment information, and health-related data such as prescriptions and medical conditions, solely for the purpose of processing your orders and providing pharmacy services.</p>
+        <h2>2. How We Use Your Information</h2>
+        <p>Your information is used to process orders, verify prescriptions, facilitate delivery, communicate order status, and improve our services. We do not use your health data for marketing or profiling purposes without your explicit consent.</p>
+        <h2>3. Data Security</h2>
+        <p>All data is encrypted using 256-bit SSL technology and stored on PDPA-compliant secure servers. Access to prescription data is strictly limited to our licensed pharmacists on a need-to-know basis. We conduct regular security audits.</p>
+        <h2>4. Third-Party Sharing</h2>
+        <p>We never sell your data. We only share information with delivery partners (name and address only), payment processors (encrypted payment data only), and regulatory authorities where required by Pakistani law (DRAP, PEMRA, FIA).</p>
+        <h2>5. Your Rights</h2>
+        <p>You have the right to access, correct, or request deletion of your personal data. Contact our Data Protection Officer at privacy@medipharm.pk. We will respond within 30 working days.</p>
+        <h2>6. License Information</h2>
+        <p>MediPharm is licensed by the Drug Regulatory Authority of Pakistan (DRAP). License No: PB-PH-2024-001. Registered Business: MediPharm (Pvt.) Ltd., 12-B Main Boulevard, Gulberg II, Lahore.</p>
+      </div>
+
+      <div id="legal-tc" class="legal-wrap" style="display:none;">
+        <h1>Terms & Conditions</h1>
+        <p class="legal-date">Last updated: January 1, 2025</p>
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using MediPharm's website or services, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        <h2>2. Prescription Medicines</h2>
+        <p>All prescription (Rx) medicines are dispensed only against a valid prescription from a PMDC-registered doctor. Providing false prescriptions is a criminal offence under the Drugs Act 1976 and will be reported to relevant authorities. MediPharm reserves the right to reject any prescription deemed fraudulent, illegible, or outside its validity period.</p>
+        <h2>3. Product Information</h2>
+        <p>Product information is provided for educational purposes only and does not constitute medical advice. Always consult a licensed healthcare professional. MediPharm is not liable for adverse effects resulting from self-medication or disregard of professional medical advice.</p>
+        <h2>4. Pricing & Availability</h2>
+        <p>Prices are subject to change without prior notice. Product availability is subject to stock. MediPharm reserves the right to cancel orders if a product becomes unavailable or is priced in error, with a full refund issued promptly.</p>
+        <h2>5. Limitation of Liability</h2>
+        <p>MediPharm shall not be liable for any indirect, incidental, or consequential damages arising from use of our services. Our total liability shall not exceed the amount paid for the relevant order.</p>
+      </div>
+
+      <div id="legal-rp" class="legal-wrap" style="display:none;">
+        <h1>Refund Policy</h1>
+        <p class="legal-date">Last updated: January 1, 2025</p>
+        <h2>1. Eligibility for Returns</h2>
+        <p>You may return sealed, unopened medicines within 7 days of delivery. Products must be in their original, tamper-evident sealed packaging. Medicines with broken seals, opened packaging, or requiring cold chain storage cannot be returned for safety and hygiene reasons.</p>
+        <h2>2. Wrong or Damaged Deliveries</h2>
+        <p>If you receive the wrong product, a damaged product, or a product past its expiry date, please contact us within 24 hours of delivery. We will arrange a same-day replacement or issue a 100% refund to your original payment method within 3-5 business days.</p>
+        <h2>3. Refund Process</h2>
+        <p>Refunds are processed to your original payment method. Card refunds typically take 3-7 business days. COD refunds are processed via bank transfer or mobile wallet within 2 business days of the return being received.</p>
+        <h2>4. Non-Refundable Items</h2>
+        <p>Prescription medicines dispensed against a valid Rx, temperature-sensitive products (vaccines, insulin), and opened personal care products cannot be refunded under any circumstances.</p>
+      </div>
+
+      <div id="legal-dc" class="legal-wrap" style="display:none;">
+        <h1>Medical Disclaimer</h1>
+        <p class="legal-date">Last updated: January 1, 2025</p>
+        <h2>1. Not Medical Advice</h2>
+        <p>The information provided on MediPharm's website, app, and all associated communications is for general educational and informational purposes only. It does not constitute, and should not be relied upon as, professional medical advice, diagnosis, or treatment.</p>
+        <h2>2. Consult a Professional</h2>
+        <p>Always seek the guidance of a qualified doctor, pharmacist, or other licensed healthcare professional with any questions you may have regarding a medical condition or medication. Never disregard or delay seeking professional medical advice because of something you have read on this website.</p>
+        <h2>3. Emergency Situations</h2>
+        <p>MediPharm is not an emergency service. If you are experiencing a medical emergency, please immediately call 1122 (Rescue Services), 115 (Edhi Foundation), or proceed to your nearest hospital emergency department. Do not rely on this website or our customer service for emergency medical guidance.</p>
+        <h2>4. Accuracy of Information</h2>
+        <p>While we make every effort to ensure the accuracy of information on this website, MediPharm makes no warranties or representations regarding the completeness, accuracy, or timeliness of any content. Medicine information should always be cross-verified with the product's official package insert and your prescribing physician.</p>
+      </div>
+
+    </div>
+  </section>
+</div><!-- /page-legal -->
+
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="foot-brand">
+        <div class="footer-logo">
+          <div class="logo-mark">💊</div>
+          <div class="logo-text">
+            <strong style="color:white;">MediPharm</strong>
+            <small>Trusted Online Pharmacy</small>
+          </div>
+        </div>
+        <p>Pakistan's most trusted DRAP-licensed online pharmacy. Genuine medicines, expert pharmacists, and fast doorstep delivery — serving over 50,000 patients since 2018.</p>
+        <div class="lic-tag">✅ DRAP License No: PB-PH-2024-001</div>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('products')">Shop Medicines</a>
+        <a href="#" onclick="showPage('upload')">Upload Prescription</a>
+        <a href="#" onclick="showPage('cart')">My Cart</a>
+        <a href="#" onclick="showPage('account')">My Account</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#" onclick="showPage('about')">About Us</a>
+        <a href="#" onclick="showPage('blog')">Health Blog</a>
+        <a href="#" onclick="showPage('faq')">FAQs</a>
+        <a href="#" onclick="showPage('contact')">Contact Us</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="#" onclick="showPage('legal');showLegal('pp')">Privacy Policy</a>
+        <a href="#" onclick="showPage('legal');showLegal('tc')">Terms & Conditions</a>
+        <a href="#" onclick="showPage('legal');showLegal('rp')">Refund Policy</a>
+        <a href="#" onclick="showPage('legal');showLegal('dc')">Medical Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>© 2025 MediPharm (Pvt.) Ltd. · All rights reserved.</p>
+        <p class="foot-disclaimer" style="margin-top:8px;">⚠️ MediPharm does not provide medical advice, diagnosis, or emergency services. Always consult a licensed doctor. In emergencies, call 1122. Medicines dispensed only by licensed pharmacists.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<button class="wa-fab" onclick="showToast('💬 Opening WhatsApp chat...')">💬</button>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+
+<script>
+// ─── PAGE NAVIGATION ───
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function navClick(el) {
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ─── TABS (Product Detail) ───
+function switchTab(btn, paneId) {
+  btn.closest('.pd-info').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.closest('.pd-info').querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const pane = document.getElementById(paneId);
+  if (pane) pane.classList.add('active');
+}
+
+// ─── FAQ ACCORDION ───
+function toggleFaq(q) {
+  const a = q.nextElementSibling;
+  const arrow = q.querySelector('.faq-arrow');
+  const open = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow').forEach(x => x.classList.remove('open'));
+  if (!open) { a.classList.add('open'); arrow.classList.add('open'); }
+}
+
+// ─── LEGAL TABS ───
+function showLegal(tab) {
+  ['pp','tc','rp','dc'].forEach(t => {
+    document.getElementById('legal-' + t).style.display = (t === tab) ? 'block' : 'none';
+    const btn = document.getElementById('lt-' + t);
+    if (btn) {
+      btn.className = t === tab ? 'btn btn-primary' : 'btn btn-outline';
+    }
+  });
+}
+
+// ─── CART ───
+let cartCount = 3;
+function addToCart(btn) {
+  cartCount++;
+  document.querySelector('.badge').textContent = cartCount;
+  showToast('✅ Added to cart!', 't-success');
+}
+
+// ─── RX ALERT ───
+function rxAlert() {
+  showToast('📋 Prescription required — please upload your Rx first.', 't-warn');
+  setTimeout(() => showPage('upload'), 1500);
+}
+
+// ─── TOAST ───
+function showToast(msg, cls = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + cls + ' show';
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+// ─── INIT: set Legal page to Privacy Policy by default ───
+document.addEventListener('DOMContentLoaded', () => {
+  showLegal('pp');
+});
+</script>
+</body>
+</html>
