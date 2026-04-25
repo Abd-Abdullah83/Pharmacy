@@ -4,7 +4,7 @@
 
 # 💊 MediPharm — Pakistan's Trusted Online Pharmacy
 
-### A fully responsive, multi-page online pharmacy website built with pure HTML, CSS & JavaScript
+### A fully responsive, multi-page online pharmacy website built with pure HTML, CSS & JavaScript!
 
 [![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-abd--abdullah83.github.io%2FPharmacy-00897B?style=for-the-badge)](https://abd-abdullah83.github.io/Pharmacy/)
 [![DRAP Licensed](https://img.shields.io/badge/DRAP%20Licensed-PB--PH--2024--001-1565C0?style=for-the-badge)](https://abd-abdullah83.github.io/Pharmacy/)
